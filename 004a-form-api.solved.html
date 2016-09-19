@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Forms API</title>
+    <script>
+        function changeHandler(context, target){
+            document.getElementById(target).value = context.value;
+        };
+    </script>
+</head>
+<body>
+<table border="0" cellspacing="5" cellpadding="5">
+    <tr>
+        <th>Input Type</th>
+        <th>As Rendered by the browser</th>
+    </tr>
+    <tr>
+        <td>Text</td>
+        <td>
+            <input type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td>Search</td>
+        <td>
+            <input type="search" />
+        </td>
+    </tr>
+    <tr>
+        <td>Color</td>
+        <td>
+            <input type="color" onchange="changeHandler(this, 'col')" />
+            <output id="col"></output>
+        </td>
+    </tr>
+    <tr>
+        <td>Time</td>
+        <td>
+            <input type="time" />
+        </td>
+    </tr>
+    <tr>
+        <td>Date</td>
+        <td>
+            <input type="date" min="2016-09-19" max="2016-10-19" />
+        </td>
+    </tr>
+    <tr>
+        <td>Month</td>
+        <td>
+            <input type="month" />
+        </td>
+    </tr>
+    <tr>
+        <td>Week</td>
+        <td>
+            <input type="week" />
+        </td>
+    </tr>
+    <tr>
+        <td>Date Time</td>
+        <td>
+            <input type="datetime" />
+        </td>
+    </tr>
+    <tr>
+        <td>Date Time Local</td>
+        <td>
+            <input type="datetime-local" />
+        </td>
+    </tr>
+    <tr>
+        <td>Range</td>
+        <td>
+            <input min="10" max="50" step="5" type="range" onchange="changeHandler(this, 'rng')" />
+            <output id="rng"></output>
+        </td>
+    </tr>
+    <tr>
+        <td>Number</td>
+        <td>
+            <input type="number" />
+        </td>
+    </tr>
+    <tr>
+        <td>URL</td>
+        <td>
+            <input type="url" />
+        </td>
+    </tr>
+    <tr>
+        <td>eMail</td>
+        <td>
+            <input type="email" />
+        </td>
+    </tr>
+    <tr>
+        <td>Telephone</td>
+        <td>
+            <input type="tel" />
+        </td>
+    </tr>
+</table>
+
+</hr>
+<table>
+    <tr>
+        <th>Name of Tag</th>
+        <th>As Rendered in Browser</th>
+    </tr>
+    <tr>
+        <td>Progress</td>
+        <td>
+            <input type="range" min="0" max="1" step="0.01" onchange="changeHandler(this,'prog')"/>
+            <progress id="prog" value="0"></progress>
+        </td>
+    </tr>
+    <tr>
+        <td>Meter</td>
+        <td>
+            <meter value="0.9" low="0.3" high="0.8"></meter>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
