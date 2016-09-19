@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label{
+            width: 100px;
+            display: inline-block;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", init);
+        function init(){
+            document.getElementById("storebtn").addEventListener("click", clickHandler);
+        }
+        function clickHandler(){
+            validage();
+            validuser();
+        }
+        function validuser(){
+            document.getElementById("un").addEventListener("input", function(event){
+                if(event.target.value.length > 1){
+                    event.target.setCustomValidity("");
+                }else{
+                    event.target.setCustomValidity("do enter your fullname");
+                }
+            });
+        };
+        function validage(){
+            document.getElementById("ua").addEventListener("input", function(event){
+                if(event.target.value < 18){
+                    event.target.setCustomValidity("you are too young to join us");
+                }else if(event.target.value > 70){
+                    event.target.setCustomValidity("you are too old to join us");
+                }else{
+                    event.target.setCustomValidity("")
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<form action="#" method="get">
+    <label for="un">User Name</label>
+    <input type="text" id="un" name="username" required />
+    <br/>
+    <label for="ua">User Age</label>
+    <input type="number" id="ua" name="userage" required/>
+    <br/>
+    <label for="up">User Phone</label>
+    <!--
+        040-1234-1234
+    -->
+    <input title="###-####-####" pattern="\d{3}-\d{4}-\d{4}" type="tel" id="up" name="userphone" required/>
+    <br/>
+    <label></label>
+    <button id="storebtn">Store Info</button>
+
+</form>
+</body>
+</html>
