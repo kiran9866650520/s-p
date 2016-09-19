@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label{
+            width: 100px;
+            display: inline-block;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", init);
+        function init(){
+            document.getElementById("storebtn").addEventListener("click", clickHandler);
+            document.getElementById("getbtn").addEventListener("click", getHandler);
+            document.getElementById("getage").addEventListener("click", ageHandler);
+        }
+        function clickHandler(){
+            // store it on localstorage;
+            /*
+            window.localStorage.value = "some value";
+            window.localStorage.username = "Bruce";
+            window.localStorage.userage = 35;
+            window.localStorage.userphone = "123-1234-1234";
+            window.localStorage.address = "some address";
+             */
+           /*
+             window.localStorage.setItem("username", document.getElementById("un").value)// single values
+             window.localStorage.setItem("userage", document.getElementById("ua").value)// single values
+             window.localStorage.setItem("userphone", document.getElementById("up").value)// single values
+            */
+
+            window.localStorage.setItem("userdata", JSON.stringify({
+                "username" : document.getElementById("un").value,
+                "userage" : document.getElementById("ua").value,
+                "userphone" : document.getElementById("up").value
+            }));// multiple values;
+            alert("user info is now stored")
+        }
+        function ageHandler(){
+            var userdata = JSON.parse(window.localStorage.userdata)
+           alert(userdata.userage);
+        }
+        function getHandler(){
+           alert( window.localStorage.key(0))
+        }
+        function validuser(){
+            document.getElementById("un").addEventListener("input", function(event){
+                if(event.target.value.length > 1){
+                    event.target.setCustomValidity("");
+                }else{
+                    event.target.setCustomValidity("do enter your fullname");
+                }
+            });
+        };
+        function validage(){
+            document.getElementById("ua").addEventListener("input", function(event){
+                if(event.target.value < 18){
+                    event.target.setCustomValidity("you are too young to join us");
+                }else if(event.target.value > 70){
+                    event.target.setCustomValidity("you are too old to join us");
+                }else{
+                    event.target.setCustomValidity("")
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<form action="#" method="get">
+    <label for="un">User Name</label>
+    <input type="text" id="un" name="username"  />
+    <br/>
+    <label for="ua">User Age</label>
+    <input type="number" id="ua" name="userage" />
+    <br/>
+    <label for="up">User Phone</label>
+    <!--
+        040-1234-1234
+    -->
+    <input title="###-####-####" pattern="\d{3}-\d{4}-\d{4}" type="tel" id="up" name="userphone" />
+    <br/>
+    <label></label>
+    <button id="storebtn">Store Info</button>
+    <button id="getbtn">Get Info</button>
+    <button id="getage">Get Age</button>
+
+</form>
+</body>
+</html>
