@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       label{
+            width: 100px;
+           display: inline-block;
+        }
+    </style>
+    <script>
+        // window.attachEvent("onload", init);
+        // window.addEventListener("load", init);
+        document.addEventListener("DOMContentLoaded", init);
+        var elm = null;
+        function init(){
+            // document.getElementById("un").value = "ramesh";
+            // document.getElementById("un").setCustomValidity("do enter your fullname");
+           document.getElementById("un").addEventListener("input", function(event){
+                if(event.target.value.length > 1){
+                    event.target.setCustomValidity("");
+                }else{
+                    event.target.setCustomValidity("do enter your fullname");
+                }
+            });
+            //============================================
+            document.getElementById("ua").addEventListener("input", function(event){
+                if(event.target.value < 18){
+                    event.target.setCustomValidity("you are too young to join us");
+                }else if(event.target.value > 70){
+                    event.target.setCustomValidity("you are too old to join us");
+                }else{
+                    event.target.setCustomValidity("")
+                }
+            });
+            //============================================
+
+        }
+
+    </script>
+</head>
+<body>
+<form action="#" method="get">
+    <label for="un">User Name</label>
+    <input type="text" id="un" name="username" required />
+    <br/>
+    <label for="ua">User Age</label>
+    <input type="number" id="ua" name="userage" required/>
+    <br/>
+    <label for="up">User Phone</label>
+    <!--
+        040-1234-1234
+    -->
+    <input title="###-####-####" pattern="\d{3}-\d{4}-\d{4}" type="tel" id="up" name="userphone" required/>
+    <br/>
+    <label></label>
+    <button>Login</button>
+    <!--button>
+        <h1> Login Form </h1>
+        <hr/>
+        <img src="images/rajani.jpg" width="100">
+    </button-->
+</form>
+</body>
+</html>
