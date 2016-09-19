@@ -3,23 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <script>
-        document.createElement("header");
-        document.createElement("hgroup");
-        document.createElement("nav");
-        document.createElement("section");
-        document.createElement("article");
-        document.createElement("footer");
-        document.createElement("mark");
-    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/html5shiv.js"></script>
+    <![endif]-->
     <style>
-        header, nav, section, article, footer, hgroup{
-            display: block;
-        }
-        mark{
-            background-color: yellow;
-            color: black;
-        }
         header{
             background-color: dimgray;
             height: 100px;
