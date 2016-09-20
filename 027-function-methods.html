@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Methods</title>
+    <script>
+        var myfun2 = undefined;
+        function myfun1(){
+
+        };
+        myfun2 = function(){
+            console.log("hello world")
+        };
+        var batman = {
+            firstName : "Bruce",
+            lastName : "Wayne",
+            fullname : function(city){
+                return this.firstName+" "+this.lastName+" is from : "+city;
+            }
+        };
+        var superman = {
+            firstName : "Clark",
+            lastName : "Kent"
+        };
+
+        // console.log(batman.fullname());
+        // console.log(batman.fullname.call(superman," Metropolis "));
+        // console.log(batman.fullname.apply(superman,[" Metropolis "]));
+
+        console.log(batman.fullname.bind(superman)("Metropolis"));
+        // myfun2();
+        // myfun2.call();
+        // myfun2.apply();
+        // myfun2.bind()();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
