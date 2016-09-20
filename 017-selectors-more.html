@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        /*
+         *
+            li:first-child{
+                background-color: green;
+            }
+            li:first-of-type{
+                background-color: red;
+            }
+            li:last-of-type{
+                background-color: yellow;
+            }
+         */
+        /*
+        li:only-child{
+            background-color: cyan;
+        }
+        li:only-of-type{
+            background-color: purple;
+        }
+        body{
+            background-color: #3D9AF7;
+        }
+        ::selection{
+            background-color: yellow;
+        }
+        p:empty{
+            border: 5px solid purple;
+        }
+         */
+        p:not(:empty){
+            border: 5px solid purple;
+        }
+
+        a:not([href='http://spcapitaliq.com']){
+            display: none;
+        }
+    </style>
+    <script src="lib/jquery-3.1.0.js"></script>
+    <script>
+        /*
+         $(function(){
+         $("li:first").css("border","2px solid red")
+         })
+         */
+    </script>
+</head>
+<body>
+<br/>
+<a href="http://www.spcapitaliq.com/"> sp capital iq /</a>
+<br/>
+<a href="http://google.com"> sp capital iq </a>
+<br/>
+<a href="http://titanpad.com"> sp capital iq </a>
+<br/>
+<a href="http://www.spcapitaliq.com/"> sp capital iq /</a>
+<br/>
+<ul>
+    <p>para</p>
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+    <li>List Item 4</li>
+    <li>List Item 5</li>
+    <p>para</p>
+</ul>
+<ul>
+    <p>para</p>
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+    <li>List Item 4</li>
+    <li>List Item 5</li>
+</ul>
+<ul>
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+    <li>List Item 4</li>
+    <li>List Item 5</li>
+</ul>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<ul>
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+    <li>List Item 4</li>
+    <li>List Item 5</li>
+</ul>
+
+<hr/>
+<p></p>
+<hr/>
+<p> </p>
+<hr/>
+
+
+<ol>
+    <li>only child for my parent</li>
+    <p>only child for my parent</p>
+</ol>
+</body>
+</html>
