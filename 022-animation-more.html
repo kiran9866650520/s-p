@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        @keyframes vijay{
+            0%{
+                -webkit-transform: translate(0px, 0px) rotate(0deg) ;
+            }
+            10%{
+                -webkit-transform: translate(20px, 0px) rotate(36deg) ;
+            }
+            20%{
+                -webkit-transform: translate(40px, 0px) rotate(72deg) ;
+            }
+            30%{
+                -webkit-transform:translate(60px, 0px) rotate(108deg) ;
+            }
+            40%{
+                -webkit-transform:translate(80px, 0px) rotate(144deg) ;
+            }
+            50%{
+                -webkit-transform:translate(100px, 0px) rotate(180deg) ;
+            }
+            60%{
+                -webkit-transform:translate(80px, 0px) rotate(144deg) ;
+            }
+            70%{
+                -webkit-transform:translate(60px, 0px) rotate(108deg) ;
+            }
+            80%{
+                -webkit-transform:translate(40px, 0px) rotate(72deg) ;
+            }
+            90%{
+                -webkit-transform:translate(20px, 0px) rotate(36deg) ;
+            }
+            100%{
+                -webkit-transform:translate(0px, 0px) rotate(0deg) ;
+            }
+        }
+
+        .box{
+            width: 56px;
+            height: 56px;
+            background-image: url("images/grid_only.png");
+        }
+        .box{
+            animation-name : vijay;
+            animation-duration : 1s;
+            animation-iteration-count : infinite;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>
