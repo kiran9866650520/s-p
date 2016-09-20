@@ -1,0 +1,18 @@
+.container{
+	background-color: blue;
+	height: 400px;
+}
+.box{
+	width: 100px;
+	height: 100px;
+	font-family: arial;
+	font-size: 40px;
+	line-height: 100px;
+	color: #333;
+	min-width: 50px;
+	padding: 5px;
+	float: left;
+	background-color: lime;
+	margin: 2px;
+	display: none;
+}

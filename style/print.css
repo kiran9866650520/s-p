@@ -1,0 +1,17 @@
+.container{
+	border : 1px solid black;
+	height: 400px;
+}
+.box{
+	width: 100px;
+	height: 100px;
+	font-family: arial;
+	font-size: 40px;
+	line-height: 100px;
+	color: #333;
+	min-width: 50px;
+	padding: 5px;
+	float: left;
+	border: 10px solid black;
+	margin: 5px;
+}
