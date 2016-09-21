@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajax Fun</title>
+    <script type="text/template" id="temp">
+        <div class="hero">
+            <h1>{ht}</h1>
+            <img src="{hi}">
+            <h3>City : <span>{hc}</span> | Movies : <span>{hm}</span></h3>
+            <input type="range" value="{hp}" min="0" max="10"/>
+        </div>
+    </script>
     <style>
         .box{
             width: 670px;
@@ -58,7 +66,18 @@
                    //  document.querySelector(".box").innerHTML += xhr.responseText;
                     var data = JSON.parse(xhr.responseText);
                     for(var i = 0; i < data.heroes.length; i++){
-                        document.querySelector(".box").innerHTML+= '<div class="hero"><h1>Batman</h1><img src="images/batman.jpg"><h3>City : <span>Gotham</span> | Movies : <span>3</span></h3><input type="range" value="8" min="0" max="10"/></div>';
+                        var ht = data.heroes[i].title;
+                        var hi = data.heroes[i].photo;
+                        var hp = data.heroes[i].power;
+                        var hc = data.heroes[i].city;
+                        var hm = data.heroes[i].movies;
+                        var html = document.querySelector("#temp").innerHTML;
+                            html = html.replace("{ht}", ht)
+                                    .replace("{hi}",hi)
+                                    .replace("{hp}",hp)
+                                    .replace("{hc}",hc)
+                                    .replace("{hm}",hm);
+                        document.querySelector(".box").innerHTML += html ;
                     }
                     // document.querySelector(".box").innerHTML = data.heroes[1].title;
                 }
@@ -75,13 +94,6 @@
     <button>Click Me</button>
     <div class="box"></div>
 <hr/>
-    <!--
-<div class="hero">
-    <h1>Batman</h1>
-    <img src="images/batman.jpg">
-    <h3>City : <span>Gotham</span> | Movies : <span>3</span></h3>
-    <input type="range" value="8" min="0" max="10"/>
-</div>
-    -->
+
 </body>
 </html>
