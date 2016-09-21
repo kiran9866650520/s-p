@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="lib/jquery-3.1.0.js"></script>
+	<script src="lib/knockout-3.4.0-src.js"></script>
+	<script>
+	$(function(){
+		
+		 var viewModel = {
+		 	selectedProduct : ko.observable(""),
+        		products : [
+        			{hero : "batman", fName : "Bruce", lName : "Wayne"},
+        			{hero : "superman", fName : "Clark", lName : "Kent"},
+        			{hero : "spiderman", fName : "Peter", lName : "Parker"}
+        		]
+   			 };
+
+    	ko.applyBindings(viewModel);
+    	
+	})
+	</script>
+</head>
+<body>
+	<h1>Single Selection Dropdown</h1>
+	<select data-bind="options : products, optionsText : 'hero', value : selectedProduct"></select>
+	<label data-bind="text : selectedProduct().fName"></label>
+	<label data-bind="text : selectedProduct().lName"></label>
+	<label data-bind="text : selectedProduct().hero"></label>
+	<img data-bind="attr: {src: 'images/'+selectedProduct().hero+'.jpg'}" />
+	<h1>Multiple Selection Dropdown</h1>
+</body>
+</html>

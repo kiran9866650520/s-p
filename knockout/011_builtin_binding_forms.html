@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+<style>
+	#welcomeBox{
+		width: 450px;
+		height: 250px;
+		background-color: orange;
+	}
+	#displayText{
+		width: 450px;
+		height: 150px;
+		background-color: silver;
+		margin-bottom: 10px;
+	}
+	#displayHTML{
+		width: 450px;
+		height: 150px;
+		background-color: silver;
+	}
+	.stockBox{
+		width: 450px;
+		height: 150px;
+		background-color: gray;
+	}
+	.greenBox{
+		width: 450px;
+		height: 250px;
+		background-color: green;
+	}
+	.redBox{
+		width: 450px;
+		height: 250px;
+		background-color: red;
+	}
+	span{
+		width: 100px;
+		display: inline-block;
+		text-align: right;
+	}
+</style>
+	<script src="lib/jquery-3.1.0.js"></script>
+	<script src="lib/knockout-3.4.0-src.js"></script>
+	<script>
+	$(function(){
+		 var viewModel = {
+        		inStock : ko.observable(true),
+        		selectedProduct : ko.observable(""),
+        		products : [
+        			{hero : "Batman", fName : "Bruce", lName : "Wayne"},
+        			{hero : "Superman", fName : "Clark", lName : "Kent"},
+        			{hero : "Spiderman", fName : "Peter", lName : "Parker"}
+        		]
+   			 };
+
+    	ko.applyBindings(viewModel);
+    });
+	
+	</script>
+</head>
+<body>
+	<input type="checkbox" data-bind="checked : inStock" />
+	<h1 data-bind="text : inStock"></h1>
+	<hr/>
+	<!-- Step 1
+	<span> Batman : </span>		<input type="radio" value="Batman" data-bind="checked : selectedProduct" />
+	<br/>		
+	<span> Superman : </span>	<input type="radio" value="Superman" data-bind="checked : selectedProduct" />	
+	<br/>		
+	<span> Spiderman : </span>	<input type="radio" value="Spiderman" data-bind="checked : selectedProduct" />	
+	<br/>		
+	<h2 data-bind="text : 'You Have Selected : '+selectedProduct()"	></h2>
+	-->
+	
+	<!-- Step 2 using foreach template
+	<div data-bind="foreach : products">
+	<span data-bind="text : hero"></span><input type="radio" data-bind="checked : $parent.selectedProduct , value : hero" />	<br/>		
+	</div>
+		
+	<h2 data-bind="text : 'You Have Selected : '+selectedProduct()"	></h2>
+	-->
+	
+	
+</body>
+</html>

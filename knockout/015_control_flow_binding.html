@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="lib/jquery-3.1.0.js"></script>
+	<script src="lib/knockout-3.4.0-src.js"></script>
+	<script>
+	$(function(){
+		
+		 var viewModel = {
+		 	showHide : ko.observable(false),
+		 	toggleBoolean : function(){
+					if(this.showHide()){
+						this.showHide(false)
+					}else if(this.showHide() === false){
+						this.showHide(true)
+					}
+				},
+   			 /// ============================
+		 	user : ko.observable("raju"),
+		 	changeVijay : function(){
+					this.user("vijay")
+				},
+		 	changeRaju : function(){
+					this.user("raju")
+				}
+   			 }
+
+    	ko.applyBindings(viewModel);
+    	
+	})
+	</script>
+</head>
+<body>
+<button data-bind="click: toggleBoolean">true / false</button>
+<div data-bind="if : showHide">
+	<h1>I am because i ican</h1>
+</div>
+<hr/>
+<!-- 
+	visible binding works only when true or false but if can check for many cases
+-->
+<button data-bind="click: changeVijay">login vijay</button>
+<div data-bind="if : user() === 'vijay'">
+	<h1>I am vijay</h1>
+</div>
+<hr/>
+<button data-bind="click: changeRaju">login raju</button>
+<div data-bind="ifnot : user() === 'vijay'">
+	<h1>I am raju</h1>
+</div>
+</body>
+</html>

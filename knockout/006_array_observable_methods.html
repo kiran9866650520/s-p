@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	
+	<script type="text/vjhtml" id="myTemp">
+		<li data-bind="text: hero"></li>
+	</script>
+	<script src="lib/jquery-3.1.0.js"></script>
+	<script src="lib/knockout-3.4.0-src.js"></script>
+	<script>
+	$(function(){
+			var heros = [{"hero" : "Batman"}, {"hero" : "Superman"}, {"hero" : "Spiderman"}]
+			var viewModel = {
+			    list : ko.observableArray(heros),
+			    newHero : ko.observable(),
+			    
+			    addHero : function(){
+			    	if(this.newHero()){
+				    	this.list.push({"hero":this.newHero()});
+				    	this.newHero("")
+			    	}else{
+			    		alert("hero name can not be blank")
+			    	}
+			    },
+			    removeHero : function(){
+			    	this.list.pop()
+			    },
+			    reverseHero : function(){
+			    	this.list.reverse()
+			    }
+			}
+			ko.applyBindings(viewModel);
+			})	
+	</script>
+</head>
+<body>
+	 <button data-bind="click: addHero">Add New Hero</button>
+	 <button data-bind="click: removeHero">Remove Last</button>
+	 <button data-bind="click: reverseHero">Reverse Last</button>
+	 <hr/>
+	 <input type="text" data-bind="value: newHero" />
+	 
+	 <ul data-bind="template : {name : 'myTemp', foreach : list}">
+
+	 </ul>
+</body>
+</html>

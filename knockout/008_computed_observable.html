@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="lib/jquery-3.1.0.js"></script>
+	<script src="lib/knockout-3.4.0-src.js"></script>
+<script>
+	$(function(){
+		var viewModel = {
+			    uCity : ko.observable("Bangalore"),
+			    changeCity : function(){
+			    	this.uCity("Hyderabad")
+			    },
+			    showCity : ko.observable(true)
+		};
+		
+		viewModel.displayName = ko.computed(function(){
+			return this.uCity() + " is now set as city, the display is set to " + this.showCity();
+		}, viewModel)
+		
+		ko.applyBindings(viewModel);
+			
+			})	
+	</script>
+</head>
+<body>
+	
+	 <input type="text" data-bind="value : uCity , valueUpdate : 'afterkeydown'" />
+	 <h3 data-bind="text : displayName"></h3>
+	 <input type="checkbox" data-bind="checked : showCity" />
+	 <h1 data-bind="text : uCity, visible: showCity"></h1>
+	 <button data-bind="click : changeCity">Change City</button>
+</body>
+</html>

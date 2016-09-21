@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="lib/jquery-3.1.0.js"></script>
+	<script src="lib/knockout-3.4.0-src.js"></script>
+	<script>
+	$(function(){
+		/* vm as a function
+		 * 
+			function viewModel(){
+			    this.fName = "Vijay";
+			    this.lName = "Shivakumar";
+				this.fullName = ko.computed(function(){
+				    	return this.fName  +" "+ this.lName 
+				    },this);
+			}
+			ko.applyBindings(viewModel());
+			
+		 */
+		
+		/* as an object */
+		viewModel = {
+			    fName : "Vijay",
+			    lName : "Shivakumar"
+			}
+		viewModel.fullName = ko.computed(function(){
+	    					return this.fName +" "+ this.lName;
+				    		},viewModel) // viewModel needs to be passed to the computed to assign the scope of this
+				    		
+				    		
+			ko.applyBindings(viewModel);
+			})	
+	</script>
+</head>
+<body>
+	<h1> Hello <span data-bind="text : fullName"></span></h1>
+</body>
+</html>

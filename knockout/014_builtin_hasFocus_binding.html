@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="lib/jquery-3.1.0.js"></script>
+	<script src="lib/knockout-3.4.0-src.js"></script>
+	<script>
+	$(function(){
+		
+		 var viewModel = {
+		 	selectedProduct : ko.observable(),
+		 	ti1Selected : ko.observable(false),
+		 	ti2Selected : ko.observable(false),
+		 	ti3Selected : ko.observable(false),
+		 	setFocus : function(){
+		 		this.ti2Selected(true);
+		 	}
+		 	
+   			 };
+
+    	ko.applyBindings(viewModel);
+    	
+	})
+	</script>
+</head>
+<body>
+<label> Text Input 1</label>
+<input type="text" id="ti1" data-bind="hasFocus : ti1Selected" />
+<br />
+<label> Text Input 2</label>
+<input type="text" id="ti2" data-bind="hasFocus : ti2Selected" />
+<br />
+<label> Text Input 3</label>
+<input type="text" id="ti3" data-bind="hasFocus : ti3Selected" />
+<br />
+
+<button data-bind="click: setFocus">set focus on second button</button>
+
+<h1 data-bind="visible: ti1Selected">Text Input 1 is selected</h1>
+<h1 data-bind="visible: ti2Selected">Text Input 2 is selected</h1>
+<h1 data-bind="visible: ti3Selected">Text Input 3 is selected</h1>
+
+</body>
+</html>

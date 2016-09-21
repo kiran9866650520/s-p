@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+<style>
+	div{
+		width: 350px;
+		height: 100px;
+		background-color: silver;
+		border: 1px solid gray;
+		margin: 10px;
+	}
+	.redBox{
+		width: 350px;
+		height: 100px;
+		background-color: red;
+		border: 1px solid gray;
+		margin: 10px;
+	}
+	.greenBox{
+		width: 350px;
+		height: 100px;
+		background-color: green;
+		border: 1px solid gray;
+		margin: 10px;
+	}
+	.yellowBox{
+		width: 350px;
+		height: 100px;
+		background-color: yellow;
+		border: 1px solid gray;
+		margin: 10px;
+	}
+</style>
+	<script src="lib/jquery-3.1.0.js"></script>
+	<script src="lib/knockout-3.4.0-src.js"></script>
+	<script>
+	$(function(){
+		//---------------------------------------
+		var builtin_Model = {
+			classNameIs : "redBox",
+			styleSize : ko.observable(20),
+			attrVal : ko.observable("images/default.jpg"),
+			changeBatman : function(){
+				this.attrVal("images/batman.jpg")
+			},
+			changeSuperman : function(){
+				this.attrVal("images/superman.jpg")
+			},
+			changeSpiderman : function(){
+				this.attrVal("images/spiderman.jpg")
+			}
+		};
+		
+		ko.applyBindings(builtin_Model);
+		
+	});
+	
+	</script>
+</head>
+<body>
+
+	<fieldset>
+		<legend>CSS Binding</legend>
+		<div data-bind="css: classNameIs"></div>
+		<input type="range" data-bind="value : styleSize, valueUpdate='keyup'" min="1" max="200" />
+		<br/>
+		<textarea data-bind="style : {fontSize : styleSize()+'px'}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam soluta perferendis tenetur minus consectetur ab repellendus id aliquid quis vel debitis reprehenderit facilis eos repellat esse qui aperiam ut alias!</textarea>
+		<hr/>
+		<img data-bind="attr : {src : attrVal()}" />
+		<button data-bind="click: changeBatman">Batman</button>
+		<button data-bind="click: changeSuperman">Superman</button>
+		<button data-bind="click : changeSpiderman">Spiderman</button>
+	</fieldset>
+	
+</body>
+</html>

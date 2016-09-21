@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+<style>
+	div{
+		width: 350px;
+		height: 100px;
+		background-color: silver;
+		border: 1px solid gray;
+		margin: 10px;
+	}
+</style>
+	<script src="lib/jquery-3.1.0.js"></script>
+	<script src="lib/knockout-3.4.0-src.js"></script>
+	<script>
+	$(function(){
+		//---------------------------------------
+		var text_html_Model = {
+			content : "<img src='images/rajani.jpg' width='100'/>"
+		}
+		
+		ko.applyBindings(text_html_Model, text_html)
+		
+		//---------------------------------------
+		var visible_css_model = {
+			acceptRules : ko.observable(true),
+			showHide : ko.observable(true),
+			toggleRules : function(){
+				if(this.showHide()){
+					this.showHide(false)
+				}else if(this.showHide() === false){
+					this.showHide(true)
+				}
+			}
+		}
+		
+		ko.applyBindings(visible_css_model, visible_css)
+	})
+	
+	</script>
+</head>
+<body>
+
+	<fieldset id="text_html">
+		<legend>Text / HTML Binding</legend>
+		<div data-bind="text: content"></div>
+		<div data-bind="html: content"></div>
+	</fieldset>
+	<hr/>
+	<fieldset id="visible_css">
+		<legend>Visible / CSS Binding</legend>
+		Accept Rules : <input type="checkbox" data-bind="checked: acceptRules"/> 
+		<div data-bind="visible: acceptRules"></div>
+		<hr/>
+		<img src="images/rajani.jpg" width="100" height="100" data-bind="visible: showHide" />
+		<button data-bind="click: toggleRules"> Show / Hide </button>
+	</fieldset>
+	
+</body>
+</html>
