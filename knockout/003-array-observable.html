@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="lib/jquery-3.1.0.js"></script>
+    <script src="lib/knockout-3.4.0-src.js"></script>
+    <script>
+        $(function(){
+            var heros = ["Batman","Superman","Spiderman"]
+            var viewModel = {
+                list : ko.observableArray(heros),
+                pushIt : function(){
+                    this.list.push("Ironman");
+                }
+            }
+            ko.applyBindings(viewModel);
+
+
+        })
+    </script>
+</head>
+<body>
+<h1>You Have : <span data-bind="text:list().length"></span> Heros</h1>
+<button data-bind="click: pushIt">Add Hero</button>
+</body>
+</html>
