@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Even More</title>
+    <script>
+        var Hero = function(){
+            var secret = "My Secret";
+            this.fname = "Bruce";
+            this.message = function (msg) {
+                return "welcome to your "+msg;
+            }
+        };
+        /*
+        Hero.prototype.message = function(msg) {
+            return "welcome to your "+msg;
+        };
+         */
+
+        var hero1 = new Hero();
+        var hero2 = new Hero();
+        console.log(hero1.fname);
+        console.log(hero1.secret);
+        console.log(hero1.message === hero2.message);
+        console.log(hero1.message("life"));
+        console.log(hero2.message("job"));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
