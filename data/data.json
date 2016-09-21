@@ -1,0 +1,13 @@
+{
+  "heroes" : [
+    {"fname" : "Bruce", "lname" : "Wayne", "city" : "Gotham"},
+    {"fname" : "Peter", "lname" : "Parker", "city" : "New York"},
+    {"fname" : "Kit", "lname" : "Walker", "city" : "Bangala"},
+    {"fname" : "Tony", "lname" : "Stark", "city" : "New York"},
+    {"fname" : "Clark", "lname" : "Kent", "city" : "Metropolis"}
+  ]
+}
+
+/*
+jsonlint.com
+*/

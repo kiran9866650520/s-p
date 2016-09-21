@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Fun</title>
+    <style>
+        .box{
+            width: 450px;
+            height: 150px;
+            background-color: #999999;
+            font-family: Arial;
+            font-size: 20px;
+            text-align: justify;
+            padding: 10px;
+            margin: auto;
+        }
+        button{
+            display: block;
+            width: 470px;
+            margin: 10px auto;
+        }
+    </style>
+    <script>
+        var xhr = new XMLHttpRequest();
+        document.addEventListener("DOMContentLoaded", function(){
+            xhr.addEventListener("readystatechange", function(){
+                console.log(xhr.readyState);
+                if(xhr.readyState == 4 & xhr.status == 200){
+                    document.querySelector(".box").innerHTML += xhr.responseText;
+                }
+            })
+            xhr.open("get", "data/data.txt", true);
+
+            document.querySelector("button").addEventListener("click", function(){
+                xhr.send();
+            })
+        })
+    </script>
+</head>
+<body>
+    <button>Click Me</button>
+    <div class="box"></div>
+</body>
+</html>

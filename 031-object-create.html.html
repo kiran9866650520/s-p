@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+
+        var obj = Object.create(null);
+            Object.defineProperty(obj,"fname",{
+                value : "Batman",
+                writable : true,
+                configurable : true
+        });
+        console.log("=========== first ");
+        console.log(obj.fname);
+        Object.defineProperty(obj,"fname",{
+                value : "Spiderman",
+                writable : false,
+                configurable : false
+        });
+
+        console.log("=========== second ");
+        console.log(obj.fname);
+        obj.fname = "Vijay";
+        console.log("=========== third ");
+        console.log(obj.fname);
+         */
+        var obj = Object.create(null);
+            Object.defineProperties(obj,{
+                "fname" : {
+                    value : "Bruce",
+                    writable : true
+                },
+                "lname" : {
+                    value : "Wayne",
+                    writable : true
+                },
+                "sayname": {
+                    value : function(){
+                        console.log(this.fname+" "+this.lname)
+                    }
+                }
+            });
+        // obj.sayname();
+
+        var hero1 = Object.create(obj);
+            hero1.sayname();
+            hero1.fname = "kiran";
+            obj.sayname();
+            hero1.sayname();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
